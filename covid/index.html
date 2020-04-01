@@ -117,7 +117,7 @@
     }
 
     .footer {
-      padding: 2rem 1rem;
+      padding: 2rem 0;
       background-color: transparent;
     }
 
@@ -130,15 +130,19 @@
       .container {
         padding: 0 1rem;
       }
+
+      .wrap-chart-canvas .inner-chart-canvas {
+        padding: 1.5rem 0;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="page-loading">
-      <div class="is-flex inner-loading">
-        <div class="is-size-4">Loading ...</div>
-      </div>
+    <div class="is-flex inner-loading">
+      <div class="is-size-4 txt-loading">Loading ...</div>
+    </div>
   </div>
   <nav class="navbar bg-darken shadow" role="navigation" aria-label="main navigation">
     <div class="container">
@@ -208,13 +212,14 @@
     </div>
   </div>
   <footer class="footer">
-    <div class="container content">
+    <div class="container">
       <div class="text-copyright">
         Made with
         <a href="https://bulma.io" class="is-primary" target="_blank">Bulma.io</a>
         by Masyoudi
       </div>
-      <div class="is-size-6">This statistics for COVID-19 via <a href="https://github.com/mathdroid/covid-19-api">mathdroid API</a></div>
+      <div class="is-size-6">This statistics for COVID-19 via <a
+          href="https://github.com/mathdroid/covid-19-api">mathdroid API</a></div>
     </div>
   </footer>
   <script>
@@ -252,6 +257,8 @@
           qS('#cov19-summary').classList.remove('d-none')
           updateCovidSummary(data);
           initChart(data);
+        }).catch(function () {
+          qS('.page-loading .txt-loading').innerHTML = 'Oops! Something went wrong';
         });
     }
 
@@ -387,11 +394,11 @@
     }
 
     var qS = function (el) {
-      return document.querySelector('' + el)
+      return document.querySelector(el)
     }
 
     var qA = function (el) {
-      return document.querySelectorAll('' + el);
+      return document.querySelectorAll(el);
     }
   </script>
 </body>
