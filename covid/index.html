@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID-19</title>
+  <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css'>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #262c49;
+      min-height: 100vh;
+      color: #ebeefd;
+    }
+
+    .page-progress {
+      display: block;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 99;
+    }
+
+    .title {
+      color: #ebeefd !important;
+    }
+
+    .page-progress .progress {
+      margin-bottom: 0;
+      height: 3px;
+      border-radius: 0;
+    }
+
+    .navbar .navbar-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 500;
+      padding: 1rem .75rem 1rem 0;
+    }
+
+    .main-content {
+      display: block;
+      position: relative;
+      min-height: calc(100vh - 13.755rem);
+      margin: 2.5rem 0 0;
+    }
+
+    .columns.covid19-summary .column h3 {
+      margin: 0 0 1.5rem;
+    }
+
+    .bg-darken {
+      background-color: #10163a !important;
+    }
+
+    .shadow {
+      box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .radius {
+      border-radius: 0.5rem !important;
+    }
+
+    .d-none {
+      display: none !important;
+    }
+
+    .button.custom {
+      background-color: rgba(115, 103, 240) !important;
+      color: #fff;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08) !important;
+      border: none;
+    }
+
+    .dropdown-content.scroll {
+      overflow-y: auto;
+      max-height: 300px;
+    }
+
+    .padding {
+      padding: 1rem;
+    }
+
+    .wrap-chart-canvas {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .wrap-chart-canvas .inner-chart-canvas {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 700px;
+      border: 0;
+      padding: 1.5em;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      color: #fafafa;
+      overflow: hidden;
+    }
+
+    .margin-b1 {
+      margin-bottom: .5rem;
+    }
+
+    .footer {
+      padding: 2rem 1rem;
+      background-color: transparent;
+    }
+
+    .footer .text-copyright {
+      text-align: left;
+      font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-progress">
+    <progress class="progress is-small is-primary" max="100">15%</progress>
+  </div>
+  <nav class="navbar bg-darken shadow" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-title">
+        COVID-19
+      </div>
+    </div>
+  </nav>
+  <div class="main-content">
+    <div class='container'>
+      <div id='cov19-summary' class="d-none">
+        <h2 class="title">
+          Corona Virus <span id="country-name">World</span> Statistics
+        </h2>
+        <div class="columns covid19-summary is-desktop">
+          <div class="column">
+            <div class="is-block bg-darken shadow radius padding">
+              <h3 class="is-size-4">Confirmed</h3>
+              <h1 class='title confirmed'>
+            </div>
+            </h1>
+          </div>
+          <div class="column">
+            <div class="is-block bg-darken shadow radius padding">
+              <h3 class="is-size-4">Covered</h3>
+              <h1 class='title recovered'>
+            </div>
+            </h1>
+          </div>
+          <div class="column">
+            <div class="is-block bg-darken shadow radius padding">
+              <h3 class="is-size-4">Deaths</h3>
+              <h1 class='title deaths'>
+            </div>
+            </h1>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <h3 class="is-size-5 margin-b1">
+              You can see the percentage of distribution by country
+            </h3>
+            <div class="box bg-darken shadow">
+              <div id='dropdown-country' class="dropdown d-none">
+                <div class="dropdown-trigger">
+                  <button class="button custom" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span class="txt-select">Select Country</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content scroll">
+                  </div>
+                </div>
+              </div>
+              <div class="wrap-chart-canvas">
+                <div class="inner-chart-canvas">
+                  <canvas id="cov19-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container content">
+      <div class="text-copyright">
+        Made with
+        <a href="https://bulma.io" class="is-primary" target="_blank">Bulma.io</a>
+        by Masyoudi
+      </div>
+      <div class="is-size-6">This statistics for COVID-19 via <a href="https://github.com/mathdroid/covid-19-api">mathdroid API</a></div>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        initFetch();
+      }, 250);
+      setTimeout(function () {
+        fetchCountry();
+      }, 500);
+    });
+
+    var covid19Chart;
+    var ctxCov19Canvas = document.getElementById('cov19-canvas').getContext("2d");
+
+    var cov19ChartBarStroke = ctxCov19Canvas.createLinearGradient(700, 0, 120, 0);
+    cov19ChartBarStroke.addColorStop(0, 'rgba(0, 255, 188, 0.6)');
+    cov19ChartBarStroke.addColorStop(1, 'rgba(0, 205, 194, 0.6)');
+
+    var cov19ChartFill = ctxCov19Canvas.createLinearGradient(700, 0, 120, 0);
+    cov19ChartFill.addColorStop(0, "rgba(0, 255, 188, 0.6)");
+    cov19ChartFill.addColorStop(1, "rgba(0, 205, 194, 0.6)");
+
+    var cov19ChartFillHover = ctxCov19Canvas.createLinearGradient(700, 0, 120, 0);
+    cov19ChartFillHover.addColorStop(0, "rgba(0, 255, 188, 0.8)");
+    cov19ChartFillHover.addColorStop(1, "rgba(0, 205, 194, 0.6)");
+
+    function initFetch() {
+      fetch('https://covid19.mathdro.id/api')
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          qS('.page-progress').remove();
+          qS('#cov19-summary').classList.remove('d-none')
+          updateCovidSummary(data);
+          initChart(data);
+        });
+    }
+
+    function fetchCountry() {
+      fetch('https://covid19.mathdro.id/api/countries/')
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          var countries = data.countries;
+          var dropdowns = [];
+          var dropdownItem = '';
+          for (var i in countries) {
+            dropdownItem = '<a href="#!" class="dropdown-item" data-id="' + countries[i].iso3 + '"> ' + countries[i].name + '</a>'
+            dropdowns.push(dropdownItem)
+          }
+
+          qS('#dropdown-menu .dropdown-content').innerHTML = dropdowns.join('')
+          qS('#dropdown-country').classList.remove('d-none')
+          initDropdownCountry()
+        });
+    }
+
+    function initDropdownCountry() {
+      qS('#dropdown-country .dropdown-trigger button').addEventListener('click', function () {
+        qS('#dropdown-country').classList.toggle('is-active')
+      })
+
+      var dropdownItem = qA('#dropdown-country .dropdown-menu .dropdown-item');
+      for (var i = 0; i < dropdownItem.length; i++) {
+        dropdownItem[i].addEventListener('click', function (evt) {
+          initDropdownItemCountry(evt.target)
+        })
+      }
+    }
+
+    function initDropdownItemCountry(self) {
+      preUpdateCovidSummary()
+      var iso3 = self.getAttribute('data-id')
+      qS('#dropdown-country').classList.remove('is-active')
+      fetch('https://covid19.mathdro.id/api/countries/' + iso3)
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          updateCov19Chart(covid19Chart, [data.confirmed.value, data.recovered.value, data.deaths.value])
+          qS('#country-name').innerHTML = self.textContent
+          qS('#dropdown-country .dropdown-trigger button .txt-select').textContent = self.textContent
+          updateCovidSummary(data)
+        });
+    }
+
+    function updateCovidSummary(data) {
+      qS('#cov19-summary .confirmed').innerHTML = data.confirmed.value;
+      qS('#cov19-summary .recovered').innerHTML = data.recovered.value;
+      qS('#cov19-summary .deaths').innerHTML = data.deaths.value;
+    }
+
+    function preUpdateCovidSummary() {
+      qS('#cov19-summary .confirmed').innerHTML = '...';
+      qS('#cov19-summary .recovered').innerHTML = '...';
+      qS('#cov19-summary .deaths').innerHTML = '...';
+    }
+
+    function initChart(chartData) {
+      covid19Chart = new Chart(ctxCov19Canvas, {
+        type: 'horizontalBar',
+        data: {
+          labels: ["Confirmed", "Covered", "Deaths"],
+          datasets: [{
+            label: "Data",
+            borderColor: cov19ChartBarStroke,
+            borderWidth: 1,
+            fill: true,
+            backgroundColor: cov19ChartFill,
+            hoverBackgroundColor: cov19ChartFillHover,
+            data: [chartData.confirmed.value, chartData.recovered.value, chartData.deaths.value],
+            barPercentage: 0.1
+          }]
+        },
+        options: {
+          animation: {
+            easing: "easeOutQuart"
+          },
+          legend: {
+            position: "bottom",
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                fontColor: "#fafafa",
+                fontStyle: "bold",
+                beginAtZero: true,
+                padding: 15,
+                //display: false - remove this and commenting to display: false
+              },
+              gridLines: {
+                drawTicks: false,
+                display: false,
+                color: "transparent",
+                zeroLineColor: "transparent"
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false,
+                color: "transparent",
+                zeroLineColor: "transparent",
+                offsetGridLines: true
+              },
+              ticks: {
+                padding: 15,
+                beginAtZero: true,
+                fontColor: "#fafafa",
+                fontStyle: "bold",
+                maxTicksLimit: 20,
+              }
+            }]
+          }
+        }
+      });
+    }
+
+    function updateCov19Chart(chart, val) {
+      chart.data.datasets.pop();
+      chart.data.datasets.push({
+        data: val,
+        backgroundColor: cov19ChartFill,
+        hoverBackgroundColor: cov19ChartFillHover
+      });
+      chart.update();
+    }
+
+    var qS = function (el) {
+      return document.querySelector('' + el)
+    }
+
+    var qA = function (el) {
+      return document.querySelectorAll('' + el);
+    }
+  </script>
+</body>
+
+</html>
