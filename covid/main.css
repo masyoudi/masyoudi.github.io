@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #262c49;
+  min-height: 100vh;
+  color: #ebeefd;
+}
+
+.page-loading {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #262c49;
+  top: 0;
+  z-index: 99;
+}
+
+.page-loading .inner-loading {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: #ebeefd !important;
+}
+
+.navbar .navbar-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 1rem 0.75rem 1rem 0;
+}
+
+.main-content {
+  display: block;
+  position: relative;
+  min-height: calc(100vh - 13.755rem);
+  margin: 2.5rem 0 0;
+}
+
+.columns.covid19-summary .column h3 {
+  margin: 0 0 1.5rem;
+}
+
+.bg-darken {
+  background-color: #10163a !important;
+}
+
+.shadow {
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1) !important;
+}
+
+.radius {
+  border-radius: 0.5rem !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.button.custom {
+  background-color: rgba(115, 103, 240) !important;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;
+  border: none;
+}
+
+.notification.custom {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dropdown-content.scroll {
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.wrap-chart-canvas {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.wrap-chart-canvas .inner-chart-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  border: 0;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fafafa;
+  overflow: hidden;
+}
+
+.margin-b1 {
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  padding: 2rem 0;
+  background-color: transparent;
+}
+
+.footer .text-copyright {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .wrap-chart-canvas .inner-chart-canvas {
+    padding: 1.5rem 0;
+  }
+}
