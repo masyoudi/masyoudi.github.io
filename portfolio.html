@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Masyoudi</title>
+  <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css'>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <aside class="page-sidebar">
+    <div class="sidebar">
+      <div class="sidebar-title is-block">
+        <h3>Menu</h3>
+        <div id='close-menu' class="close"></div>
+      </div>
+      <div class="sidebar-menu is-block">
+        <a href='./index.html' class="item">
+          Home
+        </a>
+        <a href='./portfolio.html' class="item is-active">
+          Portfolio
+        </a>
+      </div>
+    </div>
+  </aside>
+  <header class="page-header">
+    <nav class="navbar bg-blue" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://masyoudi.github.io">
+            <img src="./assets/images/masyoudi.png" width="112" height="28">
+          </a>
+
+          <a id='toggle-menu' class="navbar-burger is-flex-touch">
+            <div class="burger-menu"></div>
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a href='./index.html' class="navbar-item">
+              Home
+            </a>
+            <a href='./index.html' class="navbar-item is-active">
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="page-content">
+    <div class="container">
+      <div class="box">
+        <h2 class="title">Portfolio</h2>
+        <div class="is-size-5">Some experiments that I made</div>
+        <div class="columns is-desktop margin-t10">
+          <div class="column">
+            <div class="card portfolio">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="./assets/images/covid-19-global-data.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">COVID-19</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  An web app that is built on HTML, CSS and JavaScript. This App helps other to be updated with the status 
+                  of Corona Virus. There is statistic how many is infected, recovered, and death by this virus.
+                  <br>
+                  <div class="is-block margin-t10">
+                    <span class="tag is-link is-light">HTML</span>
+                    <span class="tag is-link is-light">Vanilla JS</span>
+                    <span class="tag is-link is-light">Bulma</span>
+                    <span class="tag is-link is-light">CSS</span>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <div class="card-footer-item">
+                  <a href='https://masyoudi.github.io/covid/' class="icon has-text-info">
+                    <i class="fas fa-lg fa-globe"></i>
+                  </a>
+                  &nbsp; &nbsp;
+                  <a href='https://github.com/masyoudi/masyoudi.github.io/tree/master/covid' class="icon">
+                    <i class="fab fa-lg fa-github"></i>
+                  </a>
+                </div>
+              </footer>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card portfolio">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="./assets/images/vscode-theme.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">Dark Purple</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Visual Studio Code dark theme which combines from several themes that already exist in the 
+                  marketplace and the addition of custom colors from the owner.
+                  <br>
+                  <div class='is-block margin-t10'>
+                    <span class="tag is-link is-light">Visual Studio Code</span>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <div class="card-footer-item">
+                  <a href='https://marketplace.visualstudio.com/items?itemName=masyoudi.dark-purple' class="icon has-text-info">
+                    <i class="fas fa-lg fa-globe"></i>
+                  </a>
+                  &nbsp; &nbsp;
+                  <a href='https://github.com/masyoudi/dark-purple' class="icon">
+                    <i class="fab fa-lg fa-github"></i>
+                  </a>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="page-footer">
+    <div class="footer">
+      <div class="container">
+        <div class="content">
+          <div class="copyright">&copy; 2020 Masyoudi</div>
+          <div class="social-media">
+            <a href='https://github.com/masyoudi/' target="_blank" title='Github' class="icon is-medium github">
+              <i class="fab fa-lg fa-github"></i>
+            </a>
+            <a href='https://twitter.com/masyoudi' target="_blank" title='Twitter' class="icon is-medium twitter">
+              <i class="fab fa-lg fa-twitter"></i>
+            </a>
+            <a href='https://www.instagram.com/masyoudi/' target="_blank" title='Instagram'
+              class="icon is-medium instagram">
+              <i class="fab fa-lg fa-instagram"></i>
+            </a>
+            <a href='https://www.linkedin.com/in/masyoudi/' target="_blank" title='Linkedin'
+              class="icon is-medium linkedin">
+              <i class="fab fa-lg fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

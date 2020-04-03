@@ -4,28 +4,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Masyoudi</title>
   <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css'>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #fcfcfc;
-      min-height: 100vh;
-    }
-
-    @media screen and (max-width: 767px) {
-      .container {
-        padding: 0 1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-  <div class="container">
-    <h2 class="title">Nothing happened</h2>
+  <aside class="page-sidebar">
+    <div class="sidebar">
+      <div class="sidebar-title is-block">
+        <h3>Menu</h3>
+        <div id='close-menu' class="close"></div>
+      </div>
+      <div class="sidebar-menu is-block">
+        <a href='./index.html' class="item is-active">
+          Home
+        </a>
+        <a href='./portfolio.html' class="item">
+          Portfolio
+        </a>
+      </div>
+    </div>
+  </aside>
+  <header class="page-header">
+    <nav class="navbar bg-blue" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://masyoudi.github.io">
+            <img src="./assets/images/masyoudi.png" width="112" height="28">
+          </a>
+
+          <a id='toggle-menu' class="navbar-burger is-flex-touch">
+            <div class="burger-menu"></div>
+          </a>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a href='./index.html' class="navbar-item is-active">
+              Home
+            </a>
+            <a href='./portfolio.html' class="navbar-item">
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="page-content">
+    <div class="container">
+      <div class="box home">
+        <div class="avatar-floating">
+          <figure class="image is-128x128">
+            <img src="./assets/images/avatar.jpg">
+          </figure>
+        </div>
+        <div class="title name">Masyoudi Adi Yanta</div>
+        <div class="is-size-4">Frontend Engineer</div>
+        <div class="is-block work">
+          <div class="company">
+            <span class="icon">
+              <i class="fas fa-briefcase"></i>
+            </span>
+            <div class="is-size-5 name">
+              AuthScure Sdn. Bhd.
+            </div>
+          </div>
+          <div class="place">
+            <span class="icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            <div class="is-size-7 name">Yogyakarta, Indonesia</div>
+          </div>
+        </div>
+        <div class="title about">About</div>
+        <h2 class="is-size-6">
+          Frontend engineer who is passionate about new things about mobile and web technology.
+          <br/>
+          Love to learn programming to hone logic and write code.
+        </h2>
+      </div>
+    </div>
   </div>
+  <footer class="page-footer">
+    <div class="footer">
+      <div class="container">
+        <div class="content">
+          <div class="copyright">&copy; 2020 Masyoudi</div>
+          <div class="social-media">
+            <a href='https://github.com/masyoudi/' target="_blank" title='Github' class="icon is-medium github">
+              <i class="fab fa-lg fa-github"></i>
+            </a>
+            <a href='https://twitter.com/masyoudi' target="_blank" title='Twitter' class="icon is-medium twitter">
+              <i class="fab fa-lg fa-twitter"></i>
+            </a>
+            <a href='https://www.instagram.com/masyoudi/' target="_blank" title='Instagram'
+              class="icon is-medium instagram">
+              <i class="fab fa-lg fa-instagram"></i>
+            </a>
+            <a href='https://www.linkedin.com/in/masyoudi/' target="_blank" title='Linkedin'
+              class="icon is-medium linkedin">
+              <i class="fab fa-lg fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
