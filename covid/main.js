@@ -80,7 +80,7 @@ function initDropdownCountry() {
 }
 
 function initDropdownItemCountry(self) {
-  setTextCovidSummary('Calculate...');
+  setTextCovidSummary('...');
   updateCov19Chart(covid19Chart, []);
   var iso3 = self.getAttribute('data-id');
   qS('#dropdown-country').classList.remove('is-active');

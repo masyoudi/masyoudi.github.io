@@ -35,15 +35,16 @@ body {
 .page-sidebar {
   display: block;
   position: fixed;
-  width: 0;
+  width: 260px;
   height: 100%;
   top: 0;
-  right: 0;
+  right: -260px;
   background-color: #fdfdfd;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
     0 0 0 1px rgba(10, 10, 10, 0.02);
   z-index: 101;
   transition: all 0.5s ease 0s;
+  overflow: hidden;
 }
 
 .page-sidebar::after {
@@ -77,14 +78,17 @@ body {
 }
 
 .sidebar .sidebar-title {
-  display: block;
+  display: flex;
   position: relative;
   width: 100%;
   margin: 0;
   padding: 0.98855rem 1rem 1rem;
+  flex-wrap: wrap;
 }
 
 .sidebar .sidebar-title h3 {
+  display: inline-flex;
+  width: calc(100% - 27px);
   font-size: 1.75rem;
   font-weight: 500;
   line-height: 1;
@@ -93,13 +97,11 @@ body {
 }
 
 .sidebar .sidebar-title .close {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 1.2rem;
-  right: -1.5rem;
+  display: inline-flex;
+  width: 27px;
+  height: 27px;
   cursor: pointer;
-  transition: all 0.3s ease-out 0s;
+  user-select: none;
 }
 
 .sidebar .sidebar-title .close::before,
@@ -108,9 +110,10 @@ body {
   content: '';
   width: 17px;
   height: 3px;
-  top: 0.5rem;
-  right: 0.155rem;
+  top: 1.755rem;
+  right: 1.355rem;
   background-color: #333333;
+  border-radius: 2px;
 }
 
 .sidebar .sidebar-title .close::before {
@@ -297,15 +300,11 @@ body {
   }
 
   .page-sidebar.show {
-    width: 260px;
+    right: 0;
   }
 
   .page-sidebar.show::after {
     width: 100%;
     transform: translate3d(-260px, 0, 0);
-  }
-
-  .page-sidebar.show .sidebar-title .close {
-    right: 1rem;
   }
 }
