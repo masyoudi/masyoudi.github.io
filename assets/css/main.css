@@ -47,7 +47,7 @@ body {
   overflow: hidden;
 }
 
-.page-sidebar::after {
+.page-sidebar ~ .overlay {
   position: fixed;
   content: '';
   display: block;
@@ -303,8 +303,9 @@ body {
     right: 0;
   }
 
-  .page-sidebar.show::after {
+  .page-sidebar.show ~ .overlay {
     width: 100%;
     transform: translate3d(-260px, 0, 0);
+    cursor: pointer;
   }
 }
