@@ -7,6 +7,10 @@ window.addEventListener('DOMContentLoaded', function() {
     qS('aside.page-sidebar').classList.toggle('show');
   });
 
+  qS('div.overlay').addEventListener('click', function() {
+    qS('aside.page-sidebar').classList.toggle('show');
+  });
+
   function qS(el) {
     return document.querySelector('' + el);
   }
