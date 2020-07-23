@@ -1,9 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #262c49;
+  background-color: #1A2659;
   min-height: 100vh;
   color: #ebeefd;
+}
+
+a:hover {
+  color: #4182eb;
 }
 
 .page-loading {
@@ -11,7 +15,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #262c49;
+  background-color: #1A2659;
   top: 0;
   z-index: 99;
 }
@@ -91,6 +95,14 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+.svg-arrow-down {
+  display: inline-block;
+  width: 0.625em;
+  height: 1em;
+  overflow: visible;
+  font-size: inherit;
 }
 
 .wrap-chart-canvas .inner-chart-canvas {
