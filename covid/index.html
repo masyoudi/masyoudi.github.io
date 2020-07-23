@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COVID-19</title>
   <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css'>
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" defer></script>
   <link rel="stylesheet" href="./main.css">
 </head>
@@ -28,7 +27,7 @@
     <div class='container'>
       <div id='cov19-summary' class="d-none">
         <h2 class="title">
-          Corona Virus <span id="country-name">World</span> Statistics
+          Corona Virus Statistics : <span id="country-name">World</span>
         </h2>
         <div class="columns covid19-summary is-desktop">
           <div class="column">
@@ -61,7 +60,9 @@
                   <button class="button custom" aria-haspopup="true" aria-controls="dropdown-menu">
                     <span class="txt-select">Select Country</span>
                     <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      <svg class="svg-arrow-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                      </svg>
                     </span>
                   </button>
                 </div>
@@ -85,7 +86,7 @@
     <div class="container">
       <div class="text-copyright">
         Made with
-        <a href="https://bulma.io" class="is-primary" target="_blank">Bulma.io</a>
+        <a href="https://bulma.io" class="is-primary" target="_blank">bulma.io</a>
         by Masyoudi
       </div>
       <div class="is-size-6">This statistics for COVID-19 via <a
